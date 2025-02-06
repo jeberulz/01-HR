@@ -1,7 +1,6 @@
 'use client'
 
-import { Bell, Briefcase, Calendar, Users, Trash2 } from 'lucide-react'
-import { useState } from 'react'
+import { Bell, Briefcase, Calendar, Users } from 'lucide-react'
 
 const notifications = [
   {
@@ -34,64 +33,6 @@ const notifications = [
 ]
 
 export default function NotificationsPage() {
-  const [selectedFilter, setSelectedFilter] = useState('all')
-  const [selectedNotifications, setSelectedNotifications] = useState<number[]>([])
-
-  const FilterSection = () => (
-    <div className="space-y-4">
-      <h3 className="text-sm font-semibold text-[#333333]">Filter by Status</h3>
-      <div className="space-y-2">
-        <label className="flex items-center gap-2 text-sm text-[#6C757D]">
-          <input
-            type="radio"
-            name="filter"
-            checked={selectedFilter === 'all'}
-            onChange={() => setSelectedFilter('all')}
-            className="text-[#4169E1]"
-          />
-          All
-        </label>
-        <label className="flex items-center gap-2 text-sm text-[#6C757D]">
-          <input
-            type="radio"
-            name="filter"
-            checked={selectedFilter === 'unread'}
-            onChange={() => setSelectedFilter('unread')}
-            className="text-[#4169E1]"
-          />
-          Unread
-        </label>
-        <label className="flex items-center gap-2 text-sm text-[#6C757D]">
-          <input
-            type="radio"
-            name="filter"
-            checked={selectedFilter === 'read'}
-            onChange={() => setSelectedFilter('read')}
-            className="text-[#4169E1]"
-          />
-          Read
-        </label>
-      </div>
-    </div>
-  )
-
-  const Actions = () => (
-    <div className="flex items-center gap-4">
-      <button
-        className="text-sm text-[#6C757D] hover:text-[#333333]"
-        onClick={() => {/* Mark as read logic */}}
-      >
-        Mark as read
-      </button>
-      <button
-        className="text-sm text-red-500 hover:text-red-600"
-        onClick={() => {/* Delete logic */}}
-      >
-        Delete
-      </button>
-    </div>
-  )
-
   return (
     <div className="space-y-4">
       {notifications.map((notification) => {
@@ -113,9 +54,6 @@ export default function NotificationsPage() {
                   <p className="text-sm text-[#6C757D] mt-1">{notification.message}</p>
                   <p className="text-xs text-[#6C757D] mt-2">{notification.time}</p>
                 </div>
-                <button className="text-[#6C757D] hover:text-red-500">
-                  <Trash2 className="w-4 h-4" />
-                </button>
               </div>
             </div>
           </div>

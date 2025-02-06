@@ -1,6 +1,5 @@
 'use client'
 
-import { ListLayout } from '@/components/layout/ListLayout'
 import { Search as SearchIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -14,24 +13,6 @@ const filters = {
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [activeCategory, setActiveCategory] = useState('All')
-
-  const FilterSection = () => (
-    <div className="space-y-6">
-      {Object.entries(filters).map(([category, options]) => (
-        <div key={category}>
-          <h3 className="text-sm font-semibold text-[#333333] mb-3 capitalize">{category}</h3>
-          <div className="space-y-2">
-            {options.map((option) => (
-              <label key={option} className="flex items-center gap-2 text-sm text-[#6C757D]">
-                <input type="checkbox" className="rounded text-[#4169E1]" />
-                {option}
-              </label>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
 
   return (
     <div className="space-y-6">
